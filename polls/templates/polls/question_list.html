@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+<div>
+    <table>
+    <tr>
+        <th>question_id</th>
+        <th>question_text</th>
+        <th>pub_date</th>
+        <th>question_type</th>
+    </tr>   
+   {% for question in questions %}
+        <tr>
+            <td>{{ question.id }}</td>
+            <td><a href="{% url 'polls:question_detail' question.id %}">{{ question.question_text }}</a></td>
+            <td>{{ question.pub_date }}</td>
+            <td>{{ question.question_type }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+     
+       
+
+</div>
+</body>
+</html>
