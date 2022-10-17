@@ -2,7 +2,9 @@
 <ul>
 {% for choice in question.choice_set.all %}
     <li>{{ choice.choice_text }} {{ choice.votes }} </li>
-    <li>Odpowiedzi</li>
-    <li> {{ answer.answer_text }} </li>
+    <li>Odpowiedzi:</li>
+    {% for answer in question.answer_set.all %}
+        <li>{{ answer.answer_text }}</li>
+    {% endfor %}    
 {% endfor %}
 </ul>
