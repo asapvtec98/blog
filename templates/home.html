@@ -1,8 +1,18 @@
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+
 <body>
-    {% if request.user.is_authenticated %}
-        <h1> Witaj {{ user.get_username }}!</h1>
-    {% else %}
-        <h1> Nie jesteś zalogowany </h1> 
-    {% endif %}
-    <br><a href="polls/">Pytania</a>
+  <div class="box">
+    <div>
+      {% if request.user.is_authenticated %}
+      <h1>Witaj {{ user.get_username }}!</h1>
+      {% else %}
+      <h1>Nie jesteś zalogowany</h1>
+      {% endif %}
+      <p><a href="/polls">Pytania</a></p>
+      <p><a href="polls/choices/">Wybory</a></p>
+    </div>
+  </div>
 </body>

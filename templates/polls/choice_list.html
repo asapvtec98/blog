@@ -6,22 +6,24 @@
       </head>
 
 <body>
-    <a class="add_question" href="{% url 'polls:question_add' %}">Dodaj nowe pytanie</a>
+    <a class="add_question" href="{% url 'polls:choice_add' %}">Dodaj nowy wybór</a>
     
 <div>
     <table class="styled-table">
     <tr>
         <th>question_id</th>
+        <th>choice</th>
         <th>question_text</th>
         <th>pub_date</th>
-        <th>question_type</th>
+        <th>votes</th>
     </tr>   
-   {% for question in questions %}
+   {% for choice in choices %}
         <tr class="active-row">
-            <td>{{ question.id }}</td>
-            <td><a href="{% url 'polls:question_detail' question.id %}">{{ question.question_text }}</a></td>
-            <td>{{ question.pub_date }}</td>
-            <td>{{ question.question_type }}</td>
+            <td>{{ choice.id }}</td>
+            <td>{{ choice.choice_text }}</td>
+            <td>{{ choice.question }}</td>
+            <td>{{ choice.pub_date }}</td>
+            <td>{{ choice.votes }}</td>
         </tr>
     {% endfor %}
     </table>
